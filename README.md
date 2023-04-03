@@ -8,7 +8,7 @@ Using the wrapper is pretty easy. Just call `ra := lra.NewLazyReaderAt(r)` where
 ```go
 // random is a source of infinitely many pseudo-random bytes
 random := rand.New(rand.NewSource(42))
-readerAt := NewLazyReaderAt(random)
+readerAt := lra.NewLazyReaderAt(random)
 
 buf := make([]byte, 8)
 n, err := readerAt.ReadAt(buf, 100) // skip the first 100 bytes and then read 8 bytes
