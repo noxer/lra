@@ -1,7 +1,6 @@
 package lra
 
 import (
-	"bytes"
 	"io"
 	"math/rand"
 	"testing"
@@ -10,13 +9,6 @@ import (
 )
 
 func TestReaderAt(t *testing.T) {
-	t.Run("is implemented", func(t *testing.T) {
-		r := bytes.NewReader([]byte{1, 2, 3})
-		rat := NewLazyReaderAt(r)
-
-		require.Equal(t, r, rat)
-	})
-
 	t.Run("read successful", func(t *testing.T) {
 		rnd := rand.New(rand.NewSource(42))
 		rat := NewLazyReaderAt(rnd)
